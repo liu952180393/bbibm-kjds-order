@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AmazonEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="amznenvelope.xsd">
+<Header>
+<DocumentVersion>1.01</DocumentVersion>
+<MerchantIdentifier>A1YCDQ1PL30G6D</MerchantIdentifier>
+</Header>
+<MessageType>Price</MessageType>
+<PurgeAndReplace>false</PurgeAndReplace>
+</AmazonEnvelope>

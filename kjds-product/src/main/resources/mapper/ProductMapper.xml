@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rjkj.cf.bbibm.kjds.product.supplier.mapper.ProductMapper">
+
+  <resultMap id="productMap" type="com.rjkj.cf.bbibm.kjds.product.supplier.entity.Product">
+                  <id property="id" column="id"/>
+                        <result property="productClassificationName" column="product_classification_name"/>
+                        <result property="productClassificationId" column="product_classification_id"/>
+                        <result property="classificationOne" column="classification_one"/>
+                        <result property="image" column="image"/>
+                        <result property="auditStatus" column="audit_status"/>
+                        <result property="rackStatus" column="rack_status"/>
+                        <result property="brandName" column="brand_name"/>
+                        <result property="manufacturerCode" column="manufacturer_code"/>
+                        <result property="productName" column="product_name"/>
+                        <result property="originArea" column="origin_area"/>
+                        <result property="supplierName" column="supplier_name"/>
+                        <result property="supplierNumber" column="supplier_number"/>
+                        <result property="manufacturerName" column="manufacturer_name"/>
+                        <result property="stock" column="stock"/>
+                        <result property="sku" column="sku"/>
+                        <result property="chineseAbbreviation" column="chinese_abbreviation"/>
+                        <result property="englishAbbreviation" column="english_abbreviation"/>
+                        <result property="length" column="length"/>
+                        <result property="wide" column="wide"/>
+                        <result property="height" column="height"/>
+                        <result property="weight" column="weight"/>
+                        <result property="costUnitPrice" column="cost_unit_price"/>
+                        <result property="purchasePrice" column="purchase_price"/>
+                        <result property="productTitle" column="product_title"/>
+                        <result property="keyWord" column="key_word"/>
+                        <result property="productHighlights" column="product_highlights"/>
+                        <result property="description" column="description"/>
+                        <result property="ishot" column="ishot"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="platName" column="plat_name"/>
+                        <result property="url" column="url"/>
+                        <result property="productImages" column="product_images"/>
+                        <result property="userId" column="user_id"/>
+                        <result property="errMsg" column="err_msg"/>
+                        <result property="variantSubject" column="variant_subject"/>
+                        <result property="translated" column="translated"/>
+                        <result property="isPrivate" column="is_private"/>
+            </resultMap>
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.rjkj.cf</groupId>
+        <artifactId>rjkj</artifactId>
+        <version>1.0</version>
+    </parent>
+    <modules>
+        <module>kjds-goods</module>
+        <module>kjds-api</module>
+        <module>kjds-product</module>
+        <module>new-model</module>
+        <module>kjds-order</module>
+    </modules>
+
+
+    <groupId>com.rjkj.cf.bbibm</groupId>
+    <artifactId>bbibm-kjds</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.rjkj.cf.common</groupId>
+            <artifactId>rj-common-core</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rjkj.cf.common</groupId>
+            <artifactId>rj-common-data</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rjkj.cf.common</groupId>
+            <artifactId>rj-common-security</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rjkj.cf.common</groupId>
+            <artifactId>rj-common-swgger</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rjkj.cf.common</groupId>
+            <artifactId>rj-common-log</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rjkj.cf.api</groupId>
+            <artifactId>rj-api</artifactId>
+            <version>1.4.9</version>
+        </dependency>
+        <!--注册中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--web 模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!--        freeemarker-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>rjkj.yihao</id>
+            <url>http://127.0.10.1:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>rjkj.yihao</id>
+            <url>http://127.0.10.1:8081/repository/maven-public/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

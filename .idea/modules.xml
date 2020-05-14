@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/bbibm-kjds.iml" filepath="$PROJECT_DIR$/.idea/bbibm-kjds.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bbibm-order/bbibm-order.iml" filepath="$PROJECT_DIR$/bbibm-order/bbibm-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-api/kjds-api.iml" filepath="$PROJECT_DIR$/kjds-api/kjds-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-goods/kjds-goods.iml" filepath="$PROJECT_DIR$/kjds-goods/kjds-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-order/kjds-order.iml" filepath="$PROJECT_DIR$/kjds-order/kjds-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-pay/kjds-pay.iml" filepath="$PROJECT_DIR$/kjds-pay/kjds-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-product/kjds-product.iml" filepath="$PROJECT_DIR$/kjds-product/kjds-product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kjds-transcation/kjds-transcation.iml" filepath="$PROJECT_DIR$/kjds-transcation/kjds-transcation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/new-model/new-model.iml" filepath="$PROJECT_DIR$/new-model/new-model.iml" />
+    </modules>
+  </component>
+</project>

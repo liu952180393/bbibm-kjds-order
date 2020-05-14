@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbibm.mapper.OrdersMapper">
+
+  <resultMap id="ordersMap" type="com.bbibm.entity.Orders">
+                  <id property="orderId" column="order_id"/>
+                        <result property="estimatedShippingFee" column="estimated_shipping_fee"/>
+                        <result property="paymentMethod" column="payment_method"/>
+                        <result property="messageToSeller" column="message_to_seller"/>
+                        <result property="shippingCarrier" column="shipping_carrier"/>
+                        <result property="currency" column="currency"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="payTime" column="pay_time"/>
+                        <result property="daysToShip" column="days_to_ship"/>
+                        <result property="shipByDate" column="ship_by_date"/>
+                        <result property="trackingNo" column="tracking_no"/>
+                        <result property="orderStatus" column="order_status"/>
+                        <result property="updateTime" column="update_time"/>
+                        <result property="phone" column="phone"/>
+                        <result property="name" column="name"/>
+                        <result property="fullAddress" column="full_address"/>
+                        <result property="escrowAmount" column="escrow_amount"/>
+                        <result property="goodsToDeclare" column="goods_to_declare"/>
+                        <result property="totalAmount" column="total_amount"/>
+                        <result property="serviceCode" column="service_code"/>
+                        <result property="country" column="country"/>
+                        <result property="ordersn" column="ordersn"/>
+                        <result property="buyerUsername" column="buyer_username"/>
+            </resultMap>
+</mapper>

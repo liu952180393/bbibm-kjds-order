@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rjkj.cf.bbibm.kjds.product.supplier.mapper.SupplierRoyaltyAppoveMapper">
+
+  <resultMap id="supplierRoyaltyAppoveMap" type="com.rjkj.cf.bbibm.kjds.product.supplier.entity.SupplierRoyaltyAppove">
+                  <id property="id" column="id"/>
+                        <result property="userName" column="user_name"/>
+                        <result property="supplierId" column="supplier_id"/>
+                        <result property="price" column="price"/>
+                        <result property="productId" column="product_id"/>
+                        <result property="productName" column="product_name"/>
+                        <result property="userId" column="user_id"/>
+                        <result property="createTime" column="create_time"/>
+            </resultMap>
+
+
+
+    <select id="queryAllSupplierCount" resultType="decimal">
+
+        select sum(price) as price from bbibm_supplier_royalty_appove where supplier_id=#{userId}
+
+    </select>
+
+    <select id="queryTodayAllSupplierCount" resultType="decimal">
+
+    select sum(price) as price from bbibm_supplier_royalty_appove where supplier_id=#{userId}
+    and create_time like CONCAT("%",DATE_FORMAT(NOW(),'%y-%m-%d'),"%")
+
+    </select>
+</mapper>

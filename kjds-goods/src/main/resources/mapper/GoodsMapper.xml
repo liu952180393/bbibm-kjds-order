@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rjkj.cf.bbibm.kjds.goods.mapper.GoodsMapper">
+
+  <resultMap id="goodsMap" type="com.rjkj.cf.bbibm.kjds.goods.entity.Goods">
+                  <id property="sid" column="sid"/>
+                        <result property="sname" column="sname"/>
+                        <result property="email" column="email"/>
+                        <result property="phone" column="phone"/>
+                        <result property="blicenseType" column="blicense_type"/>
+                        <result property="deptId" column="dept_id"/>
+                        <result property="cid" column="cid"/>
+                        <result property="status" column="status"/>
+                        <result property="btype" column="btype"/>
+                        <result property="oday" column="oday"/>
+                        <result property="percentage" column="percentage"/>
+                        <result property="accountSiteId" column="account_site_id"/>
+                        <result property="uid" column="uid"/>
+                        <result property="cardPositiveUrl" column="card_positive_url"/>
+                        <result property="cardSideUrl" column="card_side_url"/>
+                        <result property="cardNum" column="card_num"/>
+                        <result property="cardBtime" column="card_btime"/>
+                        <result property="cardEtime" column="card_etime"/>
+                        <result property="cardAddr" column="card_addr"/>
+                        <result property="blicenseUrl" column="blicense_url"/>
+                        <result property="blicenseCode" column="blicense_code"/>
+                        <result property="blicenseName" column="blicense_name"/>
+                        <result property="blicenseAddr" column="blicense_addr"/>
+                        <result property="bankUrl" column="bank_url"/>
+                        <result property="bankNum" column="bank_num"/>
+                        <result property="cardName" column="card_name"/>
+                        <result property="vpsName" column="vps_name"/>
+                        <result property="vpsAddr" column="vps_addr"/>
+                        <result property="vpsPwd" column="vps_pwd"/>
+                        <result property="merchantId" column="merchant_id"/>
+                        <result property="mwsToken" column="mws_token"/>
+                        <result property="ctime" column="ctime"/>
+                        <result property="cuid" column="cuid"/>
+                        <result property="utime" column="utime"/>
+                        <result property="uuid" column="uuid"/>
+                        <result property="secretKey" column="secret_key"/>
+                        <result property="awsAccessKeyId" column="aws_access_key_id"/>
+            </resultMap>
+
+    <resultMap id="selectUserPlatformInfo" type="com.rjkj.cf.bbibm.kjds.api.entity.PlatformInfoVo">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="price" column="price"/>
+    </resultMap>
+    <resultMap id="selectShoppidList" type="com.rjkj.cf.bbibm.kjds.api.entity.ShoppeId">
+        <id property="sid" column="sid"/>
+        <result property="shoppid" column="shoppid"/>
+    </resultMap>
+   <resultMap id="platformList" type="com.rjkj.cf.bbibm.kjds.api.entity.PlatformGoodsRsp">
+       <id property="pid" column="pid"/>
+       <result property="pname" column="pname"/>
+       <collection property="goodsRspList" javaType="java.util.List" ofType="com.rjkj.cf.bbibm.kjds.api.entity.GoodsRsp">
+           <id property="gid" column="gid"/>
+           <result property="gname" column="gname"/>
+           <result property="goodsPhoto" column="goods_photo"/>
+           <result property="accountSiteId" column="account_site_id"/>
+       </collection>
+   </resultMap>
+
+    <select id="selectUserPlatformInfo" resultMap="selectUserPlatformInfo">
+            select
+            sd.id as id,
+            (
+                    CASE
+                    WHEN sd.description ='1' THEN
+                        '亚马逊商城'
+                    WHEN sd.description='2' THEN
+                        'Ebay商城'
+                    WHEN sd.description='3' THEN
+                        'Shopee商城'
+                    ELSE
+                        '未知'
+                    END
+                ) as name,
+            sd.description as type,
+            sd.remarks as price
+            from bbibm_kjds_goods kg
+            left join sys_dict sd
+            on kg.pid=sd.id and sd.type='platform_type'
+            where kg.uid=#{id} and kg.status=0
+      </select>
+    
+    <select id="selectShoppidList" resultMap="selectShoppidList">
+            select
+            sid,
+            account_site_id as shoppid
+            from bbibm_kjds_goods
+            where pid=#{pid} and uid=#{id} and status=0
+    </select>
+    
+    <select id="priceList" resultMap="selectUserPlatformInfo">
+        select
+        id,
+        (
+                CASE
+                WHEN description ='1' THEN
+                        '亚马逊商城'
+                WHEN description='2' THEN
+                        'Ebay商城'
+                WHEN description='3' THEN
+                        'Shopee商城'
+                ELSE
+                        '未知'
+                END
+        ) as name,
+        description as type,
+        remarks as price
+        from sys_dict
+        where type='platform_type' order by description
+    </select>
+
+    <select id="platformList"  resultMap="platformList">
+        select
+        sd.id as pid,
+        (
+        CASE
+        WHEN sd.description ='1' THEN
+                '亚马逊商城'
+        WHEN sd.description='2' THEN
+                'Ebay商城'
+        WHEN sd.description='3' THEN
+                'Shopee商城'
+        ELSE
+                '未知'
+        END
+        ) as pname,
+        kg.sid as gid,
+        kg.sname as gname,
+        kg.goods_photo,
+        kg.account_site_id
+        from bbibm_kjds_goods kg
+        left join sys_dict sd
+        on kg.pid=sd.id and sd.type='platform_type'
+        where kg.uid=#{uid} and kg.status=0
+    </select>
+    
+    <select id="selectPidInfo" resultMap="selectUserPlatformInfo">
+  select
+            sd.id as id,
+            (
+                    CASE
+                    WHEN sd.description ='1' THEN
+                        '亚马逊商城'
+                    WHEN sd.description='2' THEN
+                        'Ebay商城'
+                    WHEN sd.description='3' THEN
+                        'Shopee商城'
+                    ELSE
+                        '未知'
+                    END
+                ) as name,
+            sd.description as type,
+            sd.remarks as price
+            from sys_dict sd where sd.id=#{pid}
+    </select>
+    
+    <select id="getShareUid" resultType="java.lang.String">
+        select uj.share_id
+        from bbibm_kjds_user_join  uj
+        where uj.recv_id=#{uid}
+    </select>
+
+<!--    <select id="getApprovalGoodsPage" resultMap="goodsMap">-->
+<!--       SELECT-->
+<!--      g.*-->
+<!--        FROM-->
+<!--	bbibm_kjds_goods_order go-->
+<!--	LEFT JOIN bbibm_kjds_goods g ON go.gid = g.sid-->
+<!--WHERE-->
+<!--	go.order_type = '4'-->
+<!--	AND g.`status` IN ('0','1','2','3','4')-->
+<!--        <if test="pid != null and pid != '' ">-->
+<!--            and g.pid=#{pid}-->
+<!--        </if>-->
+<!--        <if test="status != null and status != '' ">-->
+<!--            and g.status=#{status}-->
+<!--        </if>-->
+<!--        <if test="phone != null and phone != '' ">-->
+<!--            and g.phone=#{phone}-->
+<!--        </if>-->
+<!--        ORDER BY-->
+<!--	go.pay_time DESC-->
+<!--    </select>-->
+
+    <select id="getApprovalGoodsPage" resultMap="goodsMap">
+        SELECT
+        *
+        FROM
+        bbibm_kjds_goods
+        WHERE
+         `status` IN ('0','1','2','3','4')
+        <if test="pid != null and pid != '' ">
+            and pid=#{pid}
+        </if>
+        <if test="status != null and status != '' ">
+            and status=#{status}
+        </if>
+        <if test="phone != null and phone != '' ">
+            and phone like concat(concat('%',#{phone}),'%')
+        </if>
+        ORDER BY
+        ctime DESC
+    </select>
+</mapper>

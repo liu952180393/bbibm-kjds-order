@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rjkj.cf.bbibm.kjds.product.alibabaItemInfo.mapper.ProductInfoMapper">
+
+    <resultMap id="productInfoMap" type="com.rjkj.cf.bbibm.kjds.product.alibabaItemInfo.entity.ProductInfo">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="price" column="price"/>
+        <result property="url" column="url"/>
+        <result property="createTime" column="create_time"/>
+        <result property="variantsColor" column="variants_color"/>
+        <result property="variantsImage" column="variants_image"/>
+        <result property="variantsSize" column="variants_size"/>
+        <result property="variantPrice" column="variant_price"/>
+        <result property="variantStock" column="variant_stock"/>
+        <result property="image" column="image"/>
+        <result property="catrgoryId" column="catrgory_id"/>
+        <result property="fee" column="fee"/>
+    </resultMap>
+
+
+    <select id="queryProductListByTitle" resultMap="productInfoMap">
+        select * from product_info where title = #{title}
+    </select>
+    <select id="queryTitle" resultType="string" parameterType="java.util.Map">
+        select DISTINCT title from product_info where title !='' and
+        price!='' and (variants_color!='' or variants_size !='')
+        and variants_image !='' and variant_price !=''
+        and variant_stock !='' and catrgory_id=#{catrgoryId} GROUP BY title
+    </select>
+</mapper>

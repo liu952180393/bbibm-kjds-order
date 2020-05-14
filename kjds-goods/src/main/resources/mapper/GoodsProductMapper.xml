@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rjkj.cf.bbibm.kjds.goods.mapper.GoodsProductMapper">
+
+  <resultMap id="goodsProductMap" type="com.rjkj.cf.bbibm.kjds.api.entity.GoodsProduct">
+                  <id property="id" column="id"/>
+                        <result property="productClassificationName" column="product_classification_name"/>
+                        <result property="productClassificationId" column="product_classification_id"/>
+                        <result property="rackStatus" column="rack_status"/>
+                        <result property="brandName" column="brand_name"/>
+                        <result property="manufacturerCode" column="manufacturer_code"/>
+                        <result property="productName" column="product_name"/>
+                        <result property="originArea" column="origin_area"/>
+                        <result property="supplierName" column="supplier_name"/>
+                        <result property="supplierNumber" column="supplier_number"/>
+                        <result property="manufacturerName" column="manufacturer_name"/>
+                        <result property="sku" column="sku"/>
+                        <result property="chineseAbbreviation" column="chinese_abbreviation"/>
+                        <result property="englishAbbreviation" column="english_abbreviation"/>
+                        <result property="length" column="length"/>
+                        <result property="wide" column="wide"/>
+                        <result property="height" column="height"/>
+                        <result property="weight" column="weight"/>
+                        <result property="costUnitPrice" column="cost_unit_price"/>
+                        <result property="productTitle" column="product_title"/>
+                        <result property="keyWord" column="key_word"/>
+                        <result property="productHighlights" column="product_highlights"/>
+                        <result property="describe" column="describe"/>
+                        <result property="ctime" column="ctime"/>
+                        <result property="sid" column="sid"/>
+                        <result property="variantLogo" column="variant_logo"/>
+                        <result property="stock" column="stock"/>
+                        <result property="images" column="images"/>
+                        <result property="recycleLibrary" column="recycle_library"/>
+                        <result property="queue" column="queue"/>
+                        <result property="uploadTime" column="upload_time"/>
+            </resultMap>
+
+    <resultMap id="selectUploadGoodsProduct" type="com.rjkj.cf.bbibm.kjds.api.entity.GoodsProduct">
+            <id property="id" column="id"/>
+            <result property="productClassificationName" column="product_classification_name"/>
+            <result property="productClassificationId" column="product_classification_id"/>
+            <result property="rackStatus" column="rack_status"/>
+            <result property="brandName" column="brand_name"/>
+            <result property="manufacturerCode" column="manufacturer_code"/>
+            <result property="productName" column="product_name"/>
+            <result property="originArea" column="origin_area"/>
+            <result property="supplierName" column="supplier_name"/>
+            <result property="supplierNumber" column="supplier_number"/>
+            <result property="manufacturerName" column="manufacturer_name"/>
+            <result property="sku" column="sku"/>
+            <result property="chineseAbbreviation" column="chinese_abbreviation"/>
+            <result property="englishAbbreviation" column="english_abbreviation"/>
+            <result property="length" column="length"/>
+            <result property="wide" column="wide"/>
+            <result property="height" column="height"/>
+            <result property="weight" column="weight"/>
+            <result property="costUnitPrice" column="cost_unit_price"/>
+            <result property="productTitle" column="product_title"/>
+            <result property="keyWord" column="key_word"/>
+            <result property="productHighlights" column="product_highlights"/>
+            <result property="createTime" column="create_time"/>
+            <result property="gid" column="gid"/>
+            <result property="uid" column="uid"/>
+            <result property="stock" column="stock"/>
+            <result property="description" column="description"/>
+            <result property="image" column="image"/>
+            <result property="productImages" column="product_images"/>
+        <result property="recycleLibrary" column="recycle_library"/>
+        <result property="queue" column="queue"/>
+        <result property="uploadTime" column="upload_time"/>
+          <collection property="productVariants" javaType="java.util.List" column="sku" ofType="com.rjkj.cf.bbibm.kjds.api.entity.ProductVariant">
+              <id property="id" column="gpv_id"/>
+              <result property="variantColor" column="gpv_variant_color"/>
+              <result property="stock" column="gpv_stock"/>
+              <result property="sku" column="gpv_sku"/>
+              <result property="image" column="gpv_image"/>
+              <result property="price" column="gpv_price"/>
+              <result property="parentSku" column="gpv_parent_sku"/>
+              <result property="createTime" column="gpv_create_time"/>
+              <result property="variantSize" column="gpv_variant_size"/>
+          </collection>
+    </resultMap>
+
+    <resultMap id="goodsProductPlatformById" type="com.rjkj.cf.bbibm.kjds.goods.entity.GoodsProductRsp">
+        <id property="id" column="id"/>
+        <result property="productTitle" column="product_title"/>
+        <result property="stock" column="stock"/>
+        <result property="costUnitPrice" column="cost_unit_price"/>
+        <result property="image" column="image"/>
+        <result property="gid" column="sid"/>
+        <result property="gname" column="sname"/>
+        <result property="productImages" column="product_images"/>
+        <result property="status" column="rack_status"/>
+        <result property="errMsg" column="error_msg"/>
+        <result property="status" column="rack_status"/>
+        <result property="brandName" column="brand_name"/>
+        <result property="supplierName" column="supplier_name"/>
+        <result property="manufacturerCode" column="manufacturer_code"/>
+        <result property="productHighlights" column="product_highlights"/>
+        <result property="manufacturerName" column="manufacturer_name"/>
+        <result property="supplierNumber" column="supplier_number"/>
+        <result property="description" column="description"/>
+        <result property="userId" column="uid"/>
+    </resultMap>
+   <select id="selectGoodsProductList"  resultMap="goodsProductMap">
+            select gp.*
+            from bbibm_goods_product gp
+            left JOIN bbibm_kjds_goods g
+            on gp.sid=g.sid
+           <where>
+                 g.status=0
+                 <if test="param.uid !='' and param.uid != null">
+                     and g.uid=#{param.uid}
+                 </if>
+                 <if test="param.gid != '' and param.gid != null">
+                      and  gp.sid=#{param.gid}
+                 </if>
+           </where>
+   </select>
+
+    <select id="goodsProductPlatformById" resultMap="goodsProductPlatformById">
+            select
+            gp.*,
+            kg.sid,
+            kg.sname
+            from bbibm_goods_product gp
+            left join bbibm_kjds_goods kg
+            on gp.gid=kg.sid
+            where gp.rack_status IN
+        <foreach collection="statusList" item="statusList" index="index" open="(" close=")" separator=",">
+            #{statusList}
+        </foreach>
+         and gp.uid=#{uid} and kg.pid=#{pid} and kg.status=0
+        <if test="gid != null and gid != '' ">
+            and gp.gid=#{gid}
+        </if>
+            order by create_time desc
+    </select>
+
+    <select id="goodsProductlowershelf" resultMap="goodsProductPlatformById">
+        select
+        gp.*,
+        kg.sid,
+        kg.sname
+        from bbibm_goods_product gp
+        left join bbibm_kjds_goods kg
+        on gp.gid=kg.sid
+        where gp.rack_status IN(1)  and gp.uid=#{uid} and kg.pid=#{pid} and kg.status=0
+        <if test="gid != null and gid != '' ">
+            and gp.gid=#{gid}
+        </if>
+        order by create_time desc
+    </select>
+
+   <select id="listWaitShelf" resultMap="goodsProductPlatformById">
+        select
+        *
+        from bbibm_goods_product gp
+        where (gp.gid is null or gp.gid='') and gp.uid=#{uid} and gp.rack_status in (1,5,6) and recycle_library = '0'
+        <if test="gid != null and gid != ''">
+            gp.gid=#{gid}
+        </if>
+        order by create_time desc
+   </select>
+
+    <select id="selectUploadGoodsProduct" resultMap="selectUploadGoodsProduct">
+        select
+        gp.*,
+        gpv.id as gpv_id,
+        gpv.stock as gpv_stock,
+        gpv.image as gpv_image,
+        gpv.sku as gpv_sku,
+        gpv.variant_color as gpv_variant_color,
+        gpv.price as gpv_price,
+        gpv.parent_sku as gpv_parent_sku,
+        gpv.create_time as gpv_create_time,
+        gpv.variant_size as gpv_variant_size
+        from bbibm_goods_product  gp
+        left join bbibm_goods_product_variant gpv
+        on gp.sku=gpv.parent_sku
+        where gp.rack_status in (1,5,6) and gp.uid=#{uid}
+         and (gp.gid=#{gid} or gp.gid is null or gp.gid='')
+        and (gpv.uid=#{uid} or gpv.uid is null or gpv.uid='')
+         and (gp.area=#{area} or gp.area is null or gp.area='')
+        and gp.id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+    </select>
+    <update id="updateBrand">
+    update bbibm_goods_product set brand_name = #{brand} where id = #{productId} AND uid = #{userId} AND rack_status = '6'
+    </update>
+    <update id="updateIsQueue">
+    update bbibm_goods_product set queue = #{isQueue} where id = #{productId} AND uid = #{userId} AND rack_status = '4'
+    </update>
+    <update id="updateRecycleLibrary">
+    UPDATE bbibm_goods_product
+            SET recycle_library = #{isRecycleLibrary} where id in
+        <foreach collection="pid" item="pid" index="index" open="(" close=")" separator=",">
+            #{pid}
+        </foreach>
+        AND uid = #{uid} AND rack_status = '6'
+    </update>
+    <select id="recyclingLibraryList" resultMap="goodsProductPlatformById">
+        select
+        *
+        from bbibm_goods_product gp
+        where gp.uid=#{uid} and recycle_library = '1' and rack_status = '6'
+        order by create_time desc
+    </select>
+</mapper>

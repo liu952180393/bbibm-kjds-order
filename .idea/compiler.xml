@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kjds-goods" />
+        <module name="kjds-product" />
+        <module name="bbibm-order" />
+        <module name="new-model" />
+        <module name="kjds-api" />
+        <module name="kjds-transcation" />
+        <module name="kjds-order" />
+        <module name="kjds-pay" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bbibm-kjds" target="1.8" />
+      <module name="bbibm-order" target="1.8" />
+      <module name="kjds-api" target="1.8" />
+      <module name="kjds-auth" target="1.8" />
+      <module name="kjds-goods" target="1.8" />
+      <module name="kjds-order" target="1.8" />
+      <module name="kjds-pay" target="1.8" />
+      <module name="kjds-product" target="1.8" />
+      <module name="kjds-transcation" target="1.8" />
+      <module name="new-model" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

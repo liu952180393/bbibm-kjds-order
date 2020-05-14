@@ -1,0 +1,23 @@
+server:
+  port: 8997
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+#        server-addr: ${NACOS-HOST:47.97.167.214}:${NACOS-PORT:8848}
+        server-addr: ${NACOS-HOST:127.0.0.1}:${NACOS-PORT:8848}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  profiles:
+    active: @profiles.active@
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070
+feign:
+  hystrix:
+    enabled: true
